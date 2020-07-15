@@ -56,6 +56,7 @@ app.get('/info', (request, response) => {
         <p>${today}</p>
         </div>`
     )
+    morgan.token('data', () => {return ""})
 })
   
 app.get('/api/persons', (request, response) => {
@@ -100,7 +101,7 @@ app.post('/api/persons', (request,response) => {
         const person = {
             name: body.name,
             number: body.number,
-            id: Math.floor(Math.random()*Math.floor(9999))
+            id: Math.floor(Math.random()*Math.floor(1000))
         }
         persons = persons.concat(person)
         response.json(body)
